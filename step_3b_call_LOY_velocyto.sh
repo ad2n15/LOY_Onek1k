@@ -1,3 +1,10 @@
+# This bash script is designed to run a Python script (`run_detect_LOY_genes_velocyto.py`)
+# for detecting Loss Of Y chromosome (LOY) from velocyto counts in a high-performance
+# computing environment managed by SLURM. The script reads a list of input items from a
+# file (provided as the first argument), and for each item, it launches an Apptainer
+# container with the necessary directories bound. The Python script is executed inside
+# the container, processing each input and saving results to the specified output directory.
+# The script requests 1 node, 150GB memory, and a maximum runtime of 60 hours.
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --time=60:00:00

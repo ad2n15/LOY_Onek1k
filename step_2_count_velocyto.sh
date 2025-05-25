@@ -1,4 +1,6 @@
-
+# This script runs velocyto to generate spliced and unspliced RNA counts from 10x Genomics BAM files (generated in step 1).
+# It sets up the environment, loads required modules, and executes velocyto within an Apptainer container.
+# Usage: ./step_2_count_velocyto.sh <filtered_barcodes.tsv> <output_directory> <input.bam> <num_cpus>
 
 module load apptainer
 
