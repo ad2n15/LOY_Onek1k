@@ -38,6 +38,14 @@
 
 
 
+cat $1 | while read a b
+do
+
+file1=/mainfs/ddnb/Ahmed/Data/OneK1K/analysis/velocyto_LOY_calls2/${a}_subset_${b}_*_LOY_status_velocyto.csv
+file2=/mainfs/ddnb/Ahmed/Data/OneK1K/analysis/cellranger_LOY_calls/filtered_feature_bc_matrix_${b}_LOY_status.csv
+output_file=/mainfs/ddnb/Ahmed/Data/OneK1K/analysis/merged_LOY_calls/${a}_${b}_LOY_total_calls.csv
+
+
 
 module load apptainer
 
@@ -51,6 +59,9 @@ apptainer exec -H $PWD \
 --unsquash \
 /mainfs/ddnb/Ahmed/images/datascience-notebook_latest.sif \
 python3 merge_cellranger_velocyto_LOY_calls.py \
---file1 /mainfs/ddnb/Ahmed/Data/OneK1K/analysis/velocyto_LOY_calls/GSM5899875_subset_669_670_60PJD_LOY_status_velocyto.csv \
---file2 /mainfs/ddnb/Ahmed/Data/OneK1K/analysis/cellranger_LOY_calls/filtered_feature_bc_matrix_669_670_LOY_status.csv \
---output_dir /mainfs/ddnb/Ahmed/Data/OneK1K/analysis/merged_LOY_calls
+--file1 $file1 \
+--file2 $file2  \
+--output_file $output_file
+
+done
+
