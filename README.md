@@ -6,9 +6,9 @@ This repository contains the complete pipeline used to identify and analyze mosa
 
 ## 🔬 Project Overview
 
-LOY is the most frequent somatic event in aging men and has been associated with increased risk for multiple age-related diseases. In this study, we utilized single-cell transcriptomic data and SNP array genotyping to identify LOY at cellular resolution and explore its effects on immune cell phenotypes and gene expression programs.
+LOY is the most frequent somatic event in aging men and has been associated with increased risk for multiple age-related diseases. In this study, we utilized single-cell transcriptomic data (scRNA-seq) and SNP arrays genotyping to identify LOY at cellular resolution and explore its effects on immune cell phenotypes and gene expression programs.
 
-Our integrated pipeline spans data preprocessing, LOY calling, and data harmonization across multiple platforms (Cell Ranger, Velocyto, SNP arrays), culminating in biological insights visualized through an interactive Shiny app.
+
 
 ---
 
@@ -16,7 +16,7 @@ Our integrated pipeline spans data preprocessing, LOY calling, and data harmoniz
 
 | Folder/File | Description |
 |-------------|-------------|
-| `call_mCA_from_SNParrays/` | Bash scripts and annotations for calling mosaic chromosomal alterations (mCA) from SNP array data. |
+| `call_mCA_from_SNParrays/` | Bash scripts for calling mosaic chromosomal alterations (mCA) from SNP array data. |
 | `mapping_and_counting/` | Bash scripts and annotations for initial mapping and gene counting steps. |
 | `script/` | Miscellaneous annotated R and python scripts used throughout the pipeline. |
 | `step_1_count_and_demultiplex_cellranger.sh` | read count processing using Cell Ranger, and demultiplex |

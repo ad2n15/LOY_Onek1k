@@ -47,9 +47,10 @@ The pipeline consists of the following scripts:
 ## Usage
 
 1. Clone this repository.
-2. Run each script in order, from step 1 to step 7.
+2. follow [MOCHA](https://github.com/freeseek/mocha) to install all dependencies 
 3. Adjust any HPC-specific commands (such as module loading or job submission) as needed for your environment.
-4. Refer to the [MOCHA documentation](https://github.com/freeseek/mocha) for detailed tool usage and parameter settings.
+4- run the script after adjustment step by step
+
 
 ## References
 
