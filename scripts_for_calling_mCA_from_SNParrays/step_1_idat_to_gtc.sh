@@ -1,3 +1,15 @@
+: '
+This script is designed to convert Illumina IDAT files to GTC format using the bcftools +idat2gtc plugin. 
+It is intended to be run as a SLURM batch job and includes the following steps:
+
+- Loads required modules (samtools) and sets the BCFTOOLS_PLUGINS environment variable.
+- Navigates to the directory containing compressed IDAT files.
+- (Commented out) Optionally unzips .gz files and copies IDAT files to a new directory.
+- Sets paths for input IDAT files, output GTC files, and required manifest and cluster files.
+- Runs the bcftools +idat2gtc plugin with the specified parameters to perform the conversion.
+
+This script is useful for preprocessing genotyping array data as part of a larger bioinformatics workflow.
+'
 #!/bin/bash
 #SBATCH --job-name=cellranger_job
 #SBATCH --nodes=1

@@ -1,3 +1,17 @@
+: '
+This script is designed to process SNP array data for mosaic chromosomal alteration (mCA) calling using MoChA and related tools on a SLURM-managed HPC cluster. It performs the following steps:
+
+1. Loads required modules and sets environment variables for plugin paths.
+2. Defines file paths for manifest, cluster, reference, and other necessary resources.
+3. Sets up output directories and prefixes.
+4. Concatenates per-chromosome BCF files into a single BCF file.
+5. Annotates the BCF file with genotype information.
+6. Prepares sample statistics by combining call rate and gender information.
+7. Runs the MoChA bcftools plugin to call mCAs, generating output files with calls, statistics, and UCSC BED format.
+
+SLURM job parameters are set for resource allocation (job name, nodes, CPUs, time limit).
+The script is intended for use with Illumina SNP array data and assumes the presence of phased genotype, LRR, and BAF information in the input VCF/BCF files.
+'
 #!/bin/bash
 #SBATCH --job-name=gtcvcf1
 #SBATCH --nodes=1

@@ -1,3 +1,17 @@
+: '
+This script is designed to filter and annotate VCF/BCF files generated from SNP array data, specifically for the OneK1K project. It is intended to be run as a SLURM batch job and performs the following steps:
+
+- Loads necessary modules and sets up environment variables for required tools and plugins.
+- Defines file paths for manifest, cluster, reference, and annotation resources.
+- Reads a call rate file to identify and exclude samples with call rates below 97%.
+- Annotates the BCF file with segmental duplication information (JK field).
+- Excludes low-quality samples and chromosomes Y/MT.
+- Fills in additional INFO tags (ExcHet, F_MISSING) using bcftools plugins.
+- Applies filtering criteria based on annotation fields (JK, ExcHet, F_MISSING) and variant FILTER status.
+- Outputs a filtered and indexed BCF file for downstream analysis.
+
+This script is tailored for use with the MoChA pipeline and Illumina GSA-24v2-0 array data, using the GRCh37 reference genome.
+'
 #!/bin/bash
 #SBATCH --job-name=gtcvcf1
 #SBATCH --nodes=1

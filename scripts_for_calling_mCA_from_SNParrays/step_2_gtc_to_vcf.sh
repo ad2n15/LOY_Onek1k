@@ -1,3 +1,21 @@
+: '
+This script converts Illumina GTC genotype files to a sorted and normalized BCF file using bcftools and the gtc2vcf plugin.
+It is intended to be run as a SLURM batch job.
+
+Description:
+- Loads required modules and sets environment variables for bcftools plugins.
+- Defines file paths for manifest, cluster, GTC input, and reference genome.
+- Runs bcftools +gtc2vcf to convert GTC files to VCF, using manifest and cluster files for accurate genotype calling.
+- Adjusts clusters using the provided EGT cluster file.
+- Outputs extra information to a TSV file.
+- Pipes the VCF output to bcftools sort and then to bcftools norm for sorting, normalization, and indexing.
+- Produces a compressed, indexed BCF file as final output.
+
+Requirements:
+- bcftools with gtc2vcf plugin installed and accessible.
+- Properly formatted manifest, cluster, and GTC files.
+- SLURM workload manager for job scheduling.
+'
 #!/bin/bash
 #SBATCH --job-name=gtcvcf1
 #SBATCH --nodes=1
