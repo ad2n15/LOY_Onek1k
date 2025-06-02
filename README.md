@@ -8,27 +8,30 @@ This repository contains the complete pipeline used to identify and analyze mosa
 
 LOY is the most frequent somatic event in aging men and has been associated with increased risk for multiple age-related diseases. In this study, we utilized single-cell transcriptomic data (scRNA-seq) and SNP arrays genotyping to identify LOY at cellular resolution and explore its effects on immune cell phenotypes and gene expression programs.
 
-## required packages:
+## 🛠️ Required Packages & Tools
 
-We used apptainer containers to excute the codes on HPC.
+All analyses were performed using Apptainer containers on an HPC environment to ensure reproducibility.
 
-# To process reads, and call LOY from scRNA-seq
+### Processing scRNA-seq Reads & LOY Calling
 
+- **Cell Ranger**: [10x Genomics Cell Ranger](https://www.10xgenomics.com/support/software/cell-ranger/downloads) — for read alignment, quantification, and initial LOY calling.  
+- **subset-bam**: [10x Genomics subset-bam](https://github.com/10XGenomics/subset-bam) — for extracting specific cell barcodes from BAM files.  
+- **Velocyto**: [genomicpariscentre/velocyto (Docker)](https://hub.docker.com/r/genomicpariscentre/velocyto) — for spliced/unspliced read counting.
+- **Python 3**: [jupyter/datascience-notebook (Docker)](https://hub.docker.com/r/jupyter/datascience-notebook/) — for running Python scripts and analyses.
 
-2- CellRanger: https://www.10xgenomics.com/support/software/cell-ranger/downloads
-3- subset_bam: https://github.com/10XGenomics/subset-bam
-4- Velocyto: https://hub.docker.com/r/genomicpariscentre/velocyto
-5- python3: https://hub.docker.com/r/jupyter/datascience-notebook/
+### Processing SNP Array Data & LOY Calling
 
-# To process SNP arrays data, and call LOY from genotyping
-1- BCFtools
-2- MoChA : https://github.com/freeseek/mocha
-3- gtc2vcf: https://github.com/freeseek/gtc2vcf
+- **BCFtools** — for variant calling and manipulation.
+- **MoChA**: [MoChA](https://github.com/freeseek/mocha) — for detecting mosaic chromosomal alterations from SNP array data.
+- **gtc2vcf**: [gtc2vcf](https://github.com/freeseek/gtc2vcf) — for converting Illumina GTC files to VCF format.
 
-# To process scRNA-seq data
-1- our container with Seurat v4 nd other packages in make_container folder
-2- Seurat V5 for DGE with MAST method: https://hub.docker.com/r/satijalab/seurat
-3- phate package in python https://pypi.org/project/phate/
+### Downstream scRNA-seq Analysis
+
+- **Custom Seurat v4 Container** — available in the `make_container` folder, includes Seurat v4 and supporting R packages.
+- **Seurat v5 (MAST DGE)**: [satijalab/seurat (Docker)](https://hub.docker.com/r/satijalab/seurat) — for differential gene expression analysis using the MAST method.
+- **phate**: [phate (PyPI)](https://pypi.org/project/phate/) — for dimensionality reduction and visualization in Python.
+
+---
 
 
 ---
