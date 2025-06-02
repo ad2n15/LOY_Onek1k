@@ -47,7 +47,7 @@ apptainer exec -H $PWD \
 --bind /mainfs/ddnb/Ahmed/Data/OneK1K/analysis:/mainfs/ddnb/Ahmed/Data/OneK1K/analysis \
 --unsquash \
 /mainfs/ddnb/Ahmed/images/datascience-notebook_latest.sif \
-python3 script/calls_processing/merge_rds_barcode.py --file1 ${b}_specific_barcod --file2 $file2 --output_file  $output
+python3 scripts_for_preparing_scRNA-seq_LOY_calls/merge_rds_barcode.py --file1 ${b}_specific_barcod --file2 $file2 --output_file  $output
 
 
 

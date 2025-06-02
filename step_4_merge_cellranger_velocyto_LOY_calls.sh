@@ -58,7 +58,7 @@ apptainer exec -H $PWD \
 --bind /mainfs/ddnb/Ahmed/Data/OneK1K/analysis:/mainfs/ddnb/Ahmed/Data/OneK1K/analysis \
 --unsquash \
 /mainfs/ddnb/Ahmed/images/datascience-notebook_latest.sif \
-python3 merge_cellranger_velocyto_LOY_calls.py \
+python3 scripts_for_preparing_scRNA-seq_LOY_calls/merge_cellranger_velocyto_LOY_calls.py \
 --file1 $file1 \
 --file2 $file2  \
 --output_file $output_file

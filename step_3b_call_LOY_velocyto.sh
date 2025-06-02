@@ -26,7 +26,7 @@ apptainer run -H $PWD \
 --bind /mainfs/ddnb/Ahmed/reference/refdata-gex-GRCh38-2024-A/genes:/mainfs/ddnb/Ahmed/reference/refdata-gex-GRCh38-2024-A/genes \
 --unsquash \
 /mainfs/ddnb/Ahmed/images/datascience-notebook_latest.sif \
-python3 run_detect_LOY_genes_velocyto.py \
+python3 scripts_for_calling_LOY_from_scRNA-seq/run_detect_LOY_genes_velocyto.py \
 $a $output_dir
 
 done
