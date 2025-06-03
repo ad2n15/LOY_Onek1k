@@ -8,6 +8,63 @@ This repository contains the complete pipeline used to identify and analyze mosa
 
 LOY is the most frequent somatic event in aging men and has been associated with increased risk for multiple age-related diseases. In this study, we utilized single-cell transcriptomic data (scRNA-seq) and SNP arrays genotyping to identify LOY at cellular resolution and explore its effects on immune cell phenotypes and gene expression programs.
 
+## 📂 Automatically Generated Repository Structure
+
+You can view the current structure of the repository at any time by running:
+
+```bash
+tree -a -I '.git|__pycache__|.ipynb_checkpoints'
+```
+
+This command will display the directory tree, excluding common hidden/system folders. For example:
+
+```
+.
+├── make_container/
+│   ├── Dockerfile
+│   └── README.md
+├── scripts_for_processing_LOY_scRNA-seq_calls/
+│   ├── process_monocytes/
+│   │   ├── step1.R
+│   │   ├── step2.R
+│   │   ├── step3.R
+│   │   ├── step4.py
+│   │   └── step5.R
+│   ├── process_CD4T_cells/
+│   │   └── ...
+│   └── ...
+├── scripts_for_count_and_demultiplex_cellranger_step/
+│   ├── demuliplex_bam_file.sh
+│   ├── run_cellranger.sh
+│   └── subset_expression_by_indv.sh
+├── scripts_for_calling_LOY_from_scRNA-seq/
+│   ├── run_detect_LOY_genes_cellranger.py
+│   └── run_detect_LOY_genes_velocyto.py
+├── scripts_for_preparing_scRNA-seq_LOY_calls/
+│   ├── merge_cellranger_velocyto_LOY_calls.py
+│   └── merge_rds_barcode.py
+├── scripts_for_calling_mCA_from_SNParrays/
+│   ├── step_1_idat_to_gtc.sh
+│   ├── step_2_gtc_to_vcf.sh
+│   ├── step_3_annotate_vcf.sh
+│   ├── step_4_filter.sh
+│   ├── step_5_extract_genotypes.sh
+│   ├── step_6_phase_vcf.sh
+│   ├── step_7_call_mca.sh
+│   └── README.md
+├── step_1_count_and_demultiplex_cellranger.sh
+├── step_2_count_velocyto.sh
+├── step_3a_call_LOY_cellranger.sh
+├── step_3b_call_LOY_velocyto.sh
+├── step_4_merge_cellranger_velocyto_LOY_calls.sh
+├── step_5_process_barcodes_to_match_rds_file.sh
+├── step_6_prepare_and_collect_all_LOY_calls.sh
+└── README.md
+```
+
+> **Tip:** Run `tree -L 2` for a more compact overview, or adjust the depth as needed.
+
+
 ## 🛠️ Required Packages & Tools
 
 All analyses were performed using Apptainer containers on an HPC environment to ensure reproducibility.
